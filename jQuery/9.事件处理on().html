@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理on()</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+        }
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+        }
+        .current {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+        .style_bgc {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <ul>
+        <li>111</li>
+        <li>222</li>
+    </ul>
+
+    <ol></ol>
+
+    <script src="jQuery.mini.js"></script>
+    <script>
+        $(function() {
+            //on()方法在匹配事件上可以绑定一个或多个事件处理函数
+            $(".box1").on({
+                mouseover: function() {
+                    $(this).css("background", "skyblue");
+                },
+                mouseleave: function() {
+                    $(this).css("background", "antiquewhite");
+                },
+                click: function() {
+                    $(this).css("background", "pink");
+                }
+            })
+
+            $(".box2").on("mouseover mouseleave", function() {
+                $(this).toggleClass("current");
+            })
+             //on()方法可以事件委派
+            $("ul").on("click", "li", function() {
+                $(this).toggleClass("style_bgc");
+            })
+            //on()方法可以给动态生成的元素绑定事件
+            var li = $("<li>动态生成的li</li>");
+            $("ol").append(li);
+            $("ol").on("click", "li", function() {
+                alert(1);
+            })
+        })
+    </script>
+</body>
+</html>

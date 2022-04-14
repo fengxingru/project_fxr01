@@ -1,0 +1,131 @@
+/* 清除浮动 */
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	*zoom: 1;
+}
+/* 列表页样式 */
+.sk {
+    position: absolute;
+    left: 190px;
+    top: 40px;
+    border-left: 1px solid #c81523;
+    padding-left: 15px;
+}
+.sk_list {
+    float: left;
+}
+.sk_list ul li {
+    float: left;
+}
+.sk_list ul li a {
+    display: block;
+    height: 47px;
+    font-size: 16px;
+    line-height: 47px;
+    font-weight: 700;
+    color: #000;
+    padding: 0 30px;
+}
+.sk_con {
+    float: right;
+}
+.sk_con ul li {
+    position: relative;
+    float: left;
+}
+.sk_con ul li a {
+    display: block;
+    height: 47px;
+    line-height: 49px;
+    font-size: 14px;
+    padding: 0 20px;
+}
+.sk_con ul li:last-child a::after {
+    content: "\e91e";
+    font-family: 'icomoon';
+}
+.sk_bd>ul>li {
+    overflow: hidden;
+    width: 290px;
+    height: 460px;
+    border: 1px solid  transparent;
+}
+.sk_bd>ul>li:hover {
+    border: 1px solid #c81523;
+}
+.sk_bd>ul>li img {
+    width: 100%;
+    height: 290px;
+}
+.sk_bd>ul>li h4 {
+    height: 44px;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 15px;
+    margin-top: 6px;
+}
+.sk_bd>ul>li .price {
+    height: 30px;
+    padding-left: 12px;
+    margin-top: 5px;
+}
+.sk_bd>ul>li .price .miaosha {
+    font-size: 22px;
+    font-weight: 700;
+}
+.sk_bd>ul>li .price .origin {
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: line-through;
+    padding-left: 5px;
+}
+.sk_bd>ul>li .info {
+    height: 20px;
+    font-size: 14px;
+    padding-left: 15px;
+    margin-top: 10px;
+    line-height: 12px;
+}
+.sk_bd>ul>li .info div {
+    display: inline-block;
+}
+.sk_bd>ul>li .info .bar {
+    width: 135px;
+    height: 12px;
+    border: 1px solid #c81523;
+    border-radius: 7px;
+    overflow: hidden;
+}
+.sk_bd>ul>li .info .bar .bar_in {
+    width: 50%;
+    height: 11px;
+    background-color: #c81523;
+    transition: width .2s;
+}
+.sk_bd>ul>li .info .bar:hover .bar_in {
+    width: 100%;
+}
+.sk_bd>ul>li button {
+    width: 100%;
+    height: 53px;
+    background-color: #c81523;
+    font-size: 20px;
+    color: #fff;
+}
+.sk_bd>ul>li {
+    float: left;
+    margin-right: 13px;
+    margin-bottom: 10px;
+}
+.sk_bd>ul>li:nth-child(4n) {
+    margin-right: 0;
+}
+/* .sk_bd ul li .shoes_box:hover {
+    border: 1px solid #c81523;
+} */

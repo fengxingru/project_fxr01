@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM事件流</title>
+    <style>
+        .father {
+            position: relative;
+            margin: 100px auto;
+            background-color: pink;
+            width: 200px;
+            height: 40px;
+        }
+        .son {
+            position: absolute;
+            left: 50%;
+            margin-left: -50px;
+            top: 50%;
+            margin-top: -10px;
+            width: 100px;
+            height: 20px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <script>
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        
+        //useCapture为flase或空时，为冒泡阶段，son→father→body→html→document
+        /* father.addEventListener('click', function() {
+            alert('father');
+        }, false)
+        son.addEventListener('click', function() {
+            alert('son');
+        }) */
+
+        //useCapture为true时，为捕获阶段，document→html→body→father→son
+        father.addEventListener('click', function() {
+            alert('father');
+        }, true)
+        son.addEventListener('click', function() {
+            alert('son');
+        }, true)
+    </script>
+</body>
+</html>

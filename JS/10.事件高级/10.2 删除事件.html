@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除事件</title>
+</head>
+<body>
+    <button>111</button>
+    <button>222</button>
+
+    <script>
+        var btns = document.querySelectorAll('button');
+        btns[0].onclick = function() {
+            alert('111');
+            btns[0].onclick = null
+        }
+
+        btns[1].addEventListener('click', fn);
+        function fn () {
+            alert('222');
+            btns[1].removeEventListener('click', fn);
+        }
+    </script>
+</body>
+</html>

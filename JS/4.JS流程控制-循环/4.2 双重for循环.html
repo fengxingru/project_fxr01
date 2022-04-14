@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双重for循环</title>
+    <script>
+        var rows = prompt('请输入需要打印几行爱心');
+        var cols = prompt('请输入需要打印几列爱心');
+        var str = ''
+        for(var i = 1; i <= rows; i++) {
+            for(var j = 1; j <= cols; j++) {
+                str = str + '❤'
+            }
+            str = str + '\n';
+        }
+        console.log(str);
+
+
+        //倒三角
+        var str = ''
+        for(var i = 1; i <= 10; i++) {
+            for(var j = i; j <= 10; j++) {
+                str = str + '❤'
+            }
+            str = str + '\n';
+        }
+        console.log(str); 
+
+
+        //正三角
+        var str = ''
+        for(var i = 1; i <= 10; i++) {
+            for(var j = 1; j <= i; j++) {
+                str = str + '❤'
+            }
+            str = str + '\n';
+        }
+        console.log(str);
+
+        
+        //九九乘法表
+        var str = '';
+        for(var i = 1; i <= 9; i++) {
+           for(var j = 1; j <= i; j++) {
+               str = str + j + '×' + i + '=' + i * j + '\t';
+           }
+           str = str + '\n';
+       }
+       console.log(str);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

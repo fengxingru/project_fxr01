@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>argument的使用</title>
+    <script>
+        //arguments将传递来的实参以伪数组的形式存储
+        function getMax() {
+            var max = arguments[0];
+            for (i = 1; i < arguments.length; i++) {
+                if (arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        console.log(getMax(2, 8, 4));
+        console.log(getMax(2, 8, 4, 17, 6));
+        console.log(getMax(2, 8, 4, 17, 6, 35, 18, 59, 36));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例</title>
+    <script>
+        //利用函数翻转任意数组
+        function reverse(arr) {
+            var newArr = [];
+            for (i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        var result = reverse([1, 2, 3, 4, 5, 6]);
+        console.log(result);
+
+        //利用函数实现冒泡排序
+        function sort(arr) {
+            for (var i = 0; i <= arr.length - 1; i++) { // 外层循环管趟数 
+                for (var j = 0; j <= arr.length - i - 1; j++) { // 内循环管每一趟的交换次数
+                    if (arr[j] > arr[j + 1]) {
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        var result = sort([4, 1, 2, 3, 5]);
+        console.log(result);
+
+        //判断闰年
+        function isRunyear(year) {
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                return true;
+            }
+            return false;
+        }
+        console.log(isRunyear(2001));
+        
+        //判断二月的天数
+        function backDay() {
+            var year = prompt('请输入年份');    //不需要转换数据类型
+            if (isRunyear(year)) {
+                alert('当前年份是闰年，二月份有29天');
+            }
+            else {
+                alert('当前年份是平年，二月份有28天');
+            }
+        }
+        backDay();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

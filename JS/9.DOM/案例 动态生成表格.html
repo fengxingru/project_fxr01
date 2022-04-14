@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态生成表格</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            /* 将表格的两边框合并为一条 */
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        thead tr {
+            height: 40px;
+            background-color: pink;
+        }
+
+        table td, th{
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        var dates = [{
+            name: '小明',
+            subject: '数学',
+            score: 89
+        },{
+            name: '小红',
+            subject: '语文',
+            score: 91
+        },{
+            name: '小兰',
+            subject: '英语',
+            score: 100
+        }]
+
+        //创建tr,数组的长度决定创建的行数
+        var tbody = document.querySelector('tbody');
+        for (var i = 0; i < dates.length; i++) {
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            
+            //创建td，对象属性的个数决定单元格的个数
+            for (var k in dates[i]) {
+                //遍历对象
+                var td = document.createElement('td');
+                //dates[i]表示对象中具体的某一个，dates[i][k]获取对象的属性值
+                td.innerHTML = dates[i][k];
+                tr.appendChild(td);
+            }
+
+            //创建删除操作单元格
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="javascript:;">删除</a>';
+            tr.appendChild(td);
+        }
+
+        //删除
+        var as = document.querySelectorAll('a');
+        for (var i = 0; i < as.length; i++) {
+            as[i].onclick = function () {
+                //parentNode.removeChild(childNode)点击删除，删除当前行，当前行的parentNode为tbody，tbody的childNode为当前点击的a的父节点的父节点
+                tbody.removeChild(this.parentNode.parentNode)
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言发布</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* CSS3盒子模型，盒子大小=width */
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+            background-color: #ccc;
+            margin-bottom: 2px;
+        }
+
+        li a {
+            text-decoration: none;
+            float: right;
+        }
+
+        .box {
+            width: 575px;
+            margin: 100px 200px;
+        }
+
+        input{
+            width: 500px;
+            height: 30px;
+        }
+
+        button {
+            width: 70px;
+            height: 30px;
+            text-align: center;
+        }
+        
+        .comm_list {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="comment">
+            <input type="textarea">
+            <button>发表评论</button>
+        </div>
+        <ul class="comm_list">
+            <li>很有帮助</li>
+        </ul>
+    </div>
+
+    <script>
+        var btn = document.querySelector('button');
+        var textarea = document.querySelector('input');
+        var ul = document.querySelector('ul');
+
+        btn.onclick = function () {
+            if (textarea.value == '') {
+                alert('请输入内容');
+                return false;
+            }
+            else {
+                //创建节点
+                var li = document.createElement('li');
+                //将文本域中的内容赋值给li
+                li.innerHTML = textarea.value + "<a href='javascript:;'>删除</a>";
+                //将li节点添加至指定位置
+                ul.insertBefore(li, ul.children[0]);
+            }
+
+            //将删除节点写在btn.onclick事件里，因为点击提交评论，才生成删除
+            var as = document.querySelectorAll('a');
+            //每一个删除都需要添加事件
+            for (var i = 0; i < as.length; i++) {
+                as[i].onclick = function () {
+                    //删除li，li的父节点是ul
+                    ul.removeChild(this.parentNode);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

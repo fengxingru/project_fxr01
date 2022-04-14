@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素选择器</title>
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?585tbl');
+            src: url('fonts/icomoon.eot?585tbl#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?585tbl') format('truetype'),
+                url('fonts/icomoon.woff?585tbl') format('woff'),
+                url('fonts/icomoon.svg?585tbl#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        .box1 {
+            position: relative;
+            width: 150px;
+            height: 20px;
+            border: 1px solid black;
+        }
+
+        .box1::after {
+            position: absolute;
+            top: 2px;
+            right: 10px;
+            font-family: 'icomoon';
+            content: "";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+</body>
+
+</html>

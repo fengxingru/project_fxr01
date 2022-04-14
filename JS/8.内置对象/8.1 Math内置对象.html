@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math内置对象</title>
+    <script>
+        function getRandom(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);     
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        //随机得到1-10之间的整数
+        console.log(getRandom(1, 10));
+
+        //随机得到数组中的任意一个值
+        var arr = ['red', 'orange', 'yellow', 'green', 'blue', 'purper'];
+        console.log(arr[getRandom(0, arr.length-1)]);
+
+        //猜数字
+        var random = getRandom(1, 10);
+        while(true) { //死循环
+            var num = prompt('猜数字！请输入1-10之间的整数');
+            if(num > random) {
+                alert('你猜大了！');
+            }else if(num < random) {
+                alert('你猜小了');
+            }else {
+                alert('恭喜你！猜对了！')
+                break;  //必须break，跳出整个循环
+            }
+        }
+
+        var random = getRandom(1, 50);
+        for (var i = 1; i <= 10; i++) {
+            var num = prompt('猜数字！请输入1-50之间的整数');
+            if(num > random) {
+                alert('你猜大了！还剩' + (10 - i) + '次机会了呦~');
+            }
+            else if(num < random) {
+                alert('你猜小了还剩' + (10 - i) + '次机会了呦~');
+            }
+            else {
+                alert('恭喜你！猜对了！');
+                break;
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

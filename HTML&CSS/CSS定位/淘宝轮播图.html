@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .tb-promo {
+            /* 子绝父相 */
+            position: relative;
+            /* 相对定位下可写margin:auto;因为相对定位未脱离标准流 */
+            margin: 100px auto;
+            width: 520px;
+            height: 280px;
+        }
+        .tb-promo img {
+            width: 520px;
+            height: 280px;
+        }
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            /* left: 0; */
+            width: 20px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, .3);
+            text-align: center;
+            line-height: 30px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+        }
+        .prev {
+            left: 0;
+            border-radius: 0 15px 15px 0;
+        }
+        .next {
+            /* 如果一个盒子既有right属性，又有left属性，默认执行left属性（先左后右，先上后下） */
+            right: 0;
+            border-radius: 15px 0 0 15px;
+        }
+        .promo-nav {
+            position: absolute;
+            left: 50%;
+            margin-left: -35px;
+            bottom: 10px;
+            width: 70px;
+            height: 13px;
+            background-color: rgba(255, 255, 255, .3);
+            /* 最好不要使用小数点 */
+            border-radius: 7.5px;
+        }
+        .promo-nav li { 
+            float: left;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tb-promo">
+        <img src="taobao\taobao1.jpg" alt="">
+        
+        <a href="" class="prev"> &lt; </a>
+        <a href="" class="next"> &gt; </a>
+
+        <ul class="promo-nav">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

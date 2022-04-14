@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置类样式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none
+        }
+
+        .box {
+            width: 800px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+        .tab_list {
+            height: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tab_list li {
+            float: left;
+            padding: 0 20px;
+            line-height: 30px;
+        }
+
+        .tab_con {
+            height: 300px;
+            padding-left: 20px;
+            padding-top: 10px;
+        }
+
+        .item {
+            display: none;
+        }
+
+        .red_style {
+            background-color: red;
+        }
+    </style>
+    <script src="jQuery.mini.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="tab_list">
+            <ul>
+                <li class="red_style">tab标签1</li>
+                <li>tab标签2</li>
+                <li>tab标签3</li>
+                <li>tab标签4</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">内容1</div>
+            <div class="item">内容2</div>
+            <div class="item">内容3</div>
+            <div class="item">内容4</div>
+        </div>
+    </div>
+
+    <script>
+        //原生JS实现方法
+        /* var tab_list = document.getElementsByClassName('tab_list');
+        var lis = document.getElementsByTagName('li');
+        var items = document.getElementsByClassName('item');
+
+        for (var i = 0; i < lis.length; i++) {
+            //给li标签添加index属性
+            lis[i].setAttribute('index', i);
+            lis[i].onclick = function () {
+                //排他思想，点击事件发生时，先将所有li标签的class属性内容清空
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                }
+                //再给当前点击的li标签的class属性赋值
+                this.className = 'red_style';
+                //获取当前点击的li标签的index属性的值
+                var index = this.getAttribute('index');
+                //将所有item的display样式设置为none
+                for (var i = 0; i < items.length; i++) {
+                    items[i].style.display = 'none';
+                }
+                items[index].style.display = 'block';
+            }
+        } */
+
+        $(function() {
+            $(".tab_list li").click(function() {
+                $(this).addClass("red_style").siblings().removeClass("red_style");
+                var index = $(this).index();
+                $(".tab_con div").eq(index).show().siblings().hide();
+            })
+        })
+    </script>
+</body>
+
+</html>

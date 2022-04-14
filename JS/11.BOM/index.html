@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        /* 1.获取参数
+           2.去掉参数前的？
+           3.将参数分割 */
+        var div = document.querySelector('div');
+        var params = location.search.substr(1);
+        var arr = params.split('=');
+        div.innerHTML = arr[1] + '欢迎您';
+    </script>
+</body>
+</html>

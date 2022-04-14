@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排他思想</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+
+    <script>
+        //标签名获取元素
+        var btn = document.getElementsByTagName('button');
+
+        for (var i = 0; i < btn.length; i++) {
+            //btn获取到的是伪数据
+            btn[i].onclick = function () {
+                //清除全部元素的背景元素样式
+                for (var i = 0; i < btn.length; i++) {
+                    btn[i].style.backgroundColor = '';
+                }
+                //设置当前元素的背景元素样式
+                this.style.backgroundColor = 'pink';
+            }
+        }
+    </script>
+</body>
+
+</html>

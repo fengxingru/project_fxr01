@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画函数应用</title>
+    <style>
+        .sliderbar {
+            position: fixed;
+            right: 0px;
+            bottom: 300px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .con {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 200px;
+            height: 40px;
+            background-color: wheat;
+            z-index: -1;
+        }
+    </style>
+    <!-- 引入动画函数 -->
+    <script src="animate.js"></script>
+</head>
+<body>
+    <div class="sliderbar">
+        <span>←</span>
+        <div class="con">问题反馈</div>
+    </div>
+
+    <script>
+        var sliderbar = document.querySelector('.sliderbar');
+        var span = document.querySelector('span');
+        var con = document.querySelector('.con');
+
+        sliderbar.addEventListener('mouseenter', function() {
+            //鼠标移至sliderbar上时，触发动画
+            animate(con, -160, function() {
+                //触发回调函数
+                span.innerHTML = '→';
+            });
+        })
+
+        sliderbar.addEventListener('mouseleave', function() {
+            animate(con, 0, function() {
+                span.innerHTML = '←';
+            });
+        })
+    </script>
+</body>
+</html>

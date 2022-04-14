@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三种创建元素方式的区别</title>
+</head>
+<body>
+    <div class="box1">111</div>
+    <div class="box2">222</div>
+    <button>提交</button>
+    <script>
+        /* var btn = document.querySelector('button');
+        btn.onclick = function () {
+            document.write('<div class="box3">333</div>')
+        } */
+
+        var box1 = document.querySelector('.box1');
+        //innerHTML创建多个元素，使用拼接字符串的形式，效率最慢
+        /* for (var i = 0; i < 50; i++) {
+            box1.innerHTML += '<a href="javascript:;">哈哈哈</a>'; 
+        } */
+
+        //innerHTML创建多个原车速，使用数组的形式，效率最快
+        var arr = [];
+        for (var i = 0; i < 20; i++) {
+            arr.push('<a href="javascript:;">哈哈哈</a>');
+        }
+        //数组转换为字符串
+        box1.innerHTML = arr.join('');
+
+        //createElement创建多个元素
+        var box2 = document.querySelector('.box2');
+        for (var i = 0; i < 20; i++) {
+            var a = document.createElement('a');
+            box2.appendChild(a);
+        }
+    </script>
+</body>
+</html>

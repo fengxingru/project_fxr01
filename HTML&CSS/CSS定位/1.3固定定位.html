@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定定位</title>
+    <style>
+        .main {
+            width: 1200px;
+            height: 2000px;
+            margin: auto;
+            background-color: skyblue
+
+        }
+        .close {
+            position: fixed;
+            bottom: 5%;
+            /* 1.移动至浏览器可视区一半的位置 */
+            left: 50%;
+            /* 2.左外边距增加版心一半的距离 */
+            margin-left: 605px;
+            width: 40px;
+            height: 60px;
+            background-color: pink;
+        }
+        .right {
+            position: fixed;
+            top: 30%;
+            right: 0;
+        }
+        .left {
+            position: fixed;
+            top: 30%;
+            left: 0;
+        }
+        /* 设置照片大小应配置img标签 */
+        img {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="right">
+        <img src="C:\Users\Local_User\Pictures\Saved Pictures\JD.jpg" alt="">
+    </div>
+    <div class="left">
+        <img src="C:\Users\Local_User\Pictures\Saved Pictures\JD.jpg" alt="">
+    </div>
+    <div class="close"></div>
+    <div class="main">
+    </div>
+</body>
+</html>

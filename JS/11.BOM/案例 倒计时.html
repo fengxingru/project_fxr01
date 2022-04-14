@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box {
+            margin: 100px 500px;
+        }
+
+        span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            font-size: 24px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="h"></span>
+        <span class="m"></span>
+        <span class="s"></span>
+    </div>
+
+    <script>
+        var hour = document.querySelector('.h');
+        var minute = document.querySelector('.m');
+        var second = document.querySelector('.s');
+        var inputTime = +new Date('2021-12-26 22:00:00');    //返回用户输入时间的毫秒数
+        //单独调用一次countDown()函数，防止第一次打开页面/刷新页面时，需等待1s
+        countDown();
+        //setInterval()表示每间隔指定时间调用一次指定函数，包括第一次打开页面/刷新页面后，也需要等待指定时间，
+        window.setInterval(countDown, 1000);
+
+        function countDown(time) {
+            //获取时间戳
+            var nowTime = +new Date(); //无参数时返回当前时间的毫秒数
+            var time = (inputTime - nowTime) / 1000;    //剩余毫秒数/1000=剩余秒数
+            var h = parseInt(time / 60 / 60 % 24);
+            h = h < 10 ? '0' + h : h;
+            hour.innerHTML = h;
+            var m = parseInt(time / 60 % 60);
+            m = m < 10 ? '0' + m : m;
+            minute.innerHTML = m;
+            var s = parseInt(time % 60);
+            s = s < 10 ? '0' + s : s;
+            second.innerHTML = s;
+        }
+    </script>
+</body>
+
+</html>

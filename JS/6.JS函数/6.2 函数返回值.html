@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数返回值</title>
+    <script>
+        //利用函数求两个数的最大值
+        function getMax(num1, num2) {
+            if (num1 > num2) {
+                return num1;
+            }
+            else {
+                return num2;
+            }
+            //return num1 > num2 ? num1 : num2;可替换if语句
+        }
+        console.log(getMax(7, 1));
+
+        //利用函数求数组中的最大值
+        function getArrmax(arr) {
+            max = arr[0];
+            for (var i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+        var result = getArrmax([2, 8, 4, 17, 6, 35, 18, 59, 36]); //经常使用变量来接收调用函数得到的结果
+        console.log(result);
+
+        //return的返回值,return只返回一个值，可以输出数组，再遍历数组 
+        function gerResult (num1, num2) {
+            return [num1 + num2, num1 - num2, num1 * num2, num1 / num2];
+        }
+        var result = gerResult(3, 1);
+        console.log(result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

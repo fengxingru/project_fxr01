@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+    <style>
+        ul li:first-child {
+            background-color: red;
+        }
+
+        ul li:last-child {
+            background-color: orange;
+        }
+
+        ul li:nth-child(3) {
+            background-color: yellow;
+        }
+
+        ol li:nth-child(odd) {
+            background-color: pink;
+        }
+
+        ol li:nth-child(2n) {
+            background-color: skyblue;
+        }
+
+        /* 执行时先找到nth-child(1)，即<p>hhh</p>，在判断冒号前的标签，不符合，故样式未生效 */
+        section li:nth-child(1) {
+            background-color: green;
+        }
+
+        /* 给指定标签排序后，再查找 */
+        section li:nth-of-type(1) {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ol>
+    <section>
+        <p>hhh</p>
+        <li>1</li>
+        <li>2</li>
+    </section>
+</body>
+</html>

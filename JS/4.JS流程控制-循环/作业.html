@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业</title>
+    <script>
+        var num = prompt('请输入操作：\n 1.存钱\n 2.取钱\n 3.查询余额\n 4.退出');
+        num = parseFloat(num);
+        var money = 100;
+        while (money >= 0) {
+            if (num == 1) {
+                var input = prompt('请输入存入的金额');
+                input = parseFloat(input);
+                money = money + input;
+                alert('您的余额为' + money + '元');
+                num = prompt('请输入操作：\n 1.存钱\n 2.取钱\n 3.查询余额\n 4.退出');
+            }
+            if (num == 2) {
+                var input = prompt('请输入取出的金额');
+                input = parseFloat(input);
+                money = money - input;
+                alert('您的余额为' + money + '元');
+                num = prompt('请输入操作：\n 1.存钱\n 2.取钱\n 3.查询余额\n 4.退出');
+            }
+            if (num == 3) {
+                alert('您的余额为' + money + '元');
+                num = prompt('请输入操作：\n 1.存钱\n 2.取钱\n 3.查询余额\n 4.退出');
+            }
+            if (num == 4) {
+                break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

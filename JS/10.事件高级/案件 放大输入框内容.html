@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大输入框中内容</title>
+    <style>
+        * {
+            margin: 100px;
+            padding: 0;
+        }
+
+        .search {
+            position: relative;
+            width: 178px;
+            height: 100px;
+        }
+
+        .enlarge {
+            display: none;
+            position: absolute;
+            top: -40px;
+            width: 171px;
+            border: 1px solid rgba(0, 0, 0, .2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+            padding: 5px 0;
+            font-size: 18px;
+            line-height: 20px;
+            color: #333;
+        }
+
+        .enlarge::before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 28px;
+            left: 18px;
+            border: 8px solid #000;
+            border-style: solid dashed dashed;
+            border-color: #fff transparent transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+        <div class="enlarge">111</div>
+        <input type="text" placeholder="请输入内容" class="con">
+    </div>
+    <script>
+        var enlarge = document.querySelector('.enlarge');
+        var input = document.querySelector('input');
+        input.addEventListener('keyup', function() {
+            if(this.value == '') {
+                enlarge.style.display = 'none';
+            }
+            else{
+                enlarge.style.display = 'block';
+                enlarge.innerHTML = this.value;
+            }
+        })
+
+        //输入框失去焦点时，隐藏enlarge
+        input.addEventListener('blur', function() {
+            enlarge.style.display = 'none';
+        })
+
+        //输入框获得焦点时，显示enlarge
+        input.addEventListener('focus', function() {
+            //输入框内容不为空时，显示enlarge
+            if(this.value != '') {
+                enlarge.style.display = 'block';
+            }
+        })
+    </script>
+</body>
+</html>

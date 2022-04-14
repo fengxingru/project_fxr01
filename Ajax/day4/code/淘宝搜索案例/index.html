@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <!-- 导入页面的基本样式 -->
+  <link rel="stylesheet" href="./css/search.css" />
+  <!-- 导入 jQuery -->
+  <script src="./lib/jquery.js"></script>
+  <!-- 导入模板引擎 -->
+  <script src="./lib/template-web.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Logo -->
+    <img src="./images/taobao_logo.png" alt="" class="logo" />
+
+    <div class="box">
+      <!-- tab 栏 -->
+      <div class="tabs">
+        <div class="tab-active">宝贝</div>
+        <div>店铺</div>
+      </div>
+      <!-- 搜索区域（搜索框和搜索按钮） -->
+      <div class="search-box">
+        <input id="ipt" type="text" class="ipt" placeholder="请输入要搜索的内容" /><button class="btnSearch">
+          搜索
+        </button>
+      </div>
+      <!-- 搜索建议列表 -->
+      <div id="suggest-list">
+      </div>
+    </div>
+  </div>
+
+  <script type="text/html" id="tpl-suggessList">
+    <!-- 4.展示搜索建议内容
+    4.1.引入template-web.js文件
+    4.2.定义模板结构 -->
+    {{each result}}
+      <div class="suggest-item">{{$value[0]}}</div>
+    {{/each}}
+  </script>
+
+  <script>
+    $(function() {
+      //5.实现输入框防抖
+      //5.1.定义延时器ID
+      var timer = null;
+      //5.2.定义防抖函数
+      function debounceSearch(kw) {
+        timer = setTimeout(function() {
+          getSuggestList(kw);
+        }, 500)
+      }
+
+      //6.实现缓存搜索建议列表
+      //6.1.定义全局缓存对象
+      var cacheobj = {};
+
+      //1.给输入框绑定keyup事件
+      $('#ipt').on('keyup', function() {
+        //5.3.清空timer
+        clearTimeout(timer);
+
+        var keywords = $(this).val().trim();
+        if (keywords <= 0) {
+          return $('#suggest-list').empty().hide();;
+        }
+
+        //6.3.调用获取搜索建议的函数前，先再缓存中查询
+        if (cacheobj[keywords]) {
+          return renderSuggestList(cacheobj[keywords]);
+        }
+
+        //3.调用获取搜索建议的函数
+        // getSuggestList(keywords);
+        debounceSearch(keywords);
+      })
+
+      //2.封装获取搜索建议的函数
+      function getSuggestList(kw) {
+        $.ajax({
+          url: 'http://suggest.taobao.com/sug?q=' + kw,
+          dataType: 'jsonp',
+          success: function(res) {
+            console.log(res);
+            renderSuggestList(res);
+          }
+        })
+      }
+
+      //4.3.调用template函数
+      function renderSuggestList(res) {
+        if (res.result.length <= 0) {
+          return $('#suggest-list').empty().hide();
+        }
+        var htmlStr = template('tpl-suggessList', res);
+        $('#suggest-list').html(htmlStr).show();
+
+        //6.2.将用户输入过的关键字及结果缓存
+        var k = $('#ipt').val().trim();
+        cacheobj[k] = res;
+      }
+    })
+  </script>
+</body>
+
+</html>

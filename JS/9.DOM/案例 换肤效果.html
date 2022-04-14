@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>换肤效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url(images/taobao1.jpg) no-repeat center top;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .baidu {
+            margin: 100px auto;
+            width: 410px;
+            /* padding-top: 3px; */
+            background-color: #000;
+        }
+
+        .baidu li {
+            float: left;
+            margin: 0 1px;
+        }
+
+        .baidu img {
+            overflow: hidden;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="baidu">
+        <li><img src="images/taobao1.jpg" alt=""></li>
+        <li><img src="images/taobao2.jpg" alt=""></li>
+        <li><img src="images/taobao3.jpg" alt=""></li>
+        <li><img src="images/taobao4.jpg" alt=""></li>
+    </ul>
+
+    <script>
+        //获取baidu类中的img，以免混淆
+        var img = document.querySelector('.baidu').querySelectorAll('img');
+        for (var i = 0; i < img.length; i++) {
+            img[i].onclick = function () {
+                //获取body元素对象document.body
+                document.body.style.backgroundImage = 'url(' + this.src + ')'
+            }
+        }
+    </script>
+</body>
+
+</html>

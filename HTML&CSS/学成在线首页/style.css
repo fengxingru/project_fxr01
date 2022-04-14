@@ -1,0 +1,367 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* 清除浮动 */
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	*zoom: 1;
+}
+
+.w {
+	width: 1200px;
+	margin: auto;
+}
+
+body {
+	background-color: #f3f5f7;
+}
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.header {
+	height: 42px;
+	margin: 30px auto;
+}
+
+.logo {
+	float: left;
+	width: 196px;
+	height: 42px;
+}
+
+.nav {
+	float: left;
+	margin-left: 50px;
+}
+
+.nav ul li {
+	float: left;
+	margin: 0 15px
+}
+
+.nav ul li a {
+	display: block;
+	height: 42px;
+	padding: 0 10px;
+	line-height: 42px;
+	font-size: 18px;
+	color: #050505;
+}
+
+.nav ul li a:hover {
+	border-bottom: 2px solid #00a4ff;
+	color: #00a4ff;
+}
+
+.search {
+	float: left;
+	width: 412px;
+	height: 42px;
+	margin-left: 50px;}
+/* input和button是行内块元素，在一行显示时，行内块元素之间有缝隙，search装不下input和button，所以button掉到下一行 */
+.search input {
+	float: left;
+	width: 345px;
+	height: 40px;
+	/* 高度为40，加上下边框为42 */
+	border: 1px solid #00a4ff;
+	border-right: 0;
+	color: #bfbfbf;
+	font-size: 14px;
+	/* input框设置了宽，使用padding-left，会撑大盒子，需width-padding */
+	padding-left: 15px;
+}
+
+.search button {
+	float: left;
+	width: 51px;
+	height: 42px;
+	border: 0;
+	background-image: url(images/button.png);
+}
+
+.user {
+	float: right;
+	line-height: 42px;
+	margin-right: 10px;
+	font-size: 14px;
+	color: #666;
+	/* 未实现图片和文字水平居中 */
+
+}
+.header .user>img {
+	vertical-align: middle; 
+}
+
+.banner {
+	height: 420px;
+	background-color: #1c036c;
+}
+
+.banner .w {
+	height: 420px;
+	background: url(images/banner2.png) no-repeat top center;
+}
+
+.subnav {
+	float: left;
+	height: 420px;
+	width: 190px;
+	background-color: rgba(0, 0, 0, .3);
+}
+
+.subnav ul {
+	padding-top: 7px;
+}
+
+.subnav ul li {
+	height: 45px;
+	line-height: 45px;
+	padding:0 20px;
+}
+
+.subnav ul li a {
+	font-size: 14px;
+	color: #fff;
+}
+
+.subnav ul li a span {
+	float: right;
+}
+
+.subnav ul li a:hover {
+	color: #00a4ff;
+}
+
+.course {
+	float: right;
+	width: 230px;
+	height: 300px;
+	background-color: #f3f5f7;
+	/* 浮动的盒子不存在外边距合并的问题 */
+	margin-top: 60px;
+}
+
+.course h2 {
+	width: 230px;
+	height: 48px;
+	background-color: #9bceea;
+	text-align: center;
+	line-height: 48px;
+	font-size: 18px;
+	color: #fff;
+}
+
+.course .bd {
+	padding: 0 20px;
+}
+
+.course .bd ul li {
+	padding: 15px 0 14px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.course .bd ul li h4 {
+	font-size: 16px;
+	color: #4e4e4e;
+}
+
+.course .bd ul li p {
+	font-size: 12px;
+	color: #a5a5a5;
+}
+
+.course .bd .more {
+	display: block;
+	border: 1px solid #00a4ff;
+	margin-top: 6px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	font-size: 16px;
+	color: #00a4ff;
+}
+
+.goods {
+	margin-top: 10px;
+	height: 60px;
+	/* 行高会继承 */
+	line-height: 60px;
+	background-color: #fff;
+	box-shadow: 0 2px 3px 3px rgba(0, 0, 0, .1);
+}
+
+.goods h3 {
+	float: left;
+	font-size: 16px;
+	color: #00a4ff;
+	padding: 0 30px;
+}
+
+.goods ul {
+	float: left;
+}
+
+.goods ul li {
+	float: left;
+}
+
+.goods ul li a {
+	padding: 0 30px 0 29px;
+	/* 边框写在li里，长度与div高度相同，所以应写在a里 */
+	border-left: 1px solid #ccc;
+	text-decoration: none;
+	font-size: 16px;
+	color: #4e4e4e;
+}
+
+.goods .mod {
+	float: right;
+	padding-right: 30px;
+	text-decoration: none;
+	font-size: 14px;
+	color: #00a4ff;
+}
+
+.box {
+	padding-top: 30px;
+}
+
+.box .box-hd {
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 30px;
+}
+
+.box .box-hd h3{
+	float: left;
+	font-size: 20px;
+	color: #494949;
+	font-weight: 400;
+}
+
+.box .box-hd a {
+	float: right;
+	padding-right: 30px;
+	font-size: 14px;
+	color: #a5a5a5;
+	text-decoration: none;
+}
+
+/* 将盒子宽度修改为1212.5，每行可装5个li和其右边距，避免给每行的最后一个盒子设置右边距为0 */
+.box .box-bd {
+	width: 1212.5px;
+}
+
+.box .box-bd ul li{
+	/* 父级为相对定位 */
+	position: relative;
+	float: left;
+	margin-right: 12.5px;
+	margin-bottom: 10px;
+	height: 270px;
+	width: 230px;
+	background-color: #fff;
+}
+
+.box .box-bd ul li:hover {
+	box-shadow: 0 3px 3px 3px rgba(0, 0, 0, .1);
+}
+
+/* 图片大于盒子时，将图片的宽度设置为100% */
+.box .box-bd ul li>img {
+	width: 100%;
+}
+
+.box .box-bd ul li .hot {
+	/* 调整hot图片大小 */
+	width: 50px;
+}
+
+.box .box-bd ul li h4 {
+	margin: 20px 20px 20px 25px;
+	font-size: 14px;
+	color: #050505;
+	font-weight: 400;
+}
+
+.box .box-bd ul li em {
+	/* 子级为绝对定位 */
+	position: absolute;
+	top: 0;
+	left: -12px;
+}
+
+.box .box-bd ul li .info {
+	margin: 0 20px 0 25px;
+	font-size: 12px;
+	color: #999;
+}
+
+.box .box-bd ul li .info span {
+	color: #ff7c2d;
+}
+
+.footer {
+	height: 300px;
+	background-color: #fff;
+}
+
+.footer .w {
+	padding-top: 35px;
+}
+
+.footer .copyright{
+	float: left;
+}
+
+.footer .links {
+	float: right;
+}
+
+.copyright p {
+	font-size: 12px;
+	color: #666;
+	margin: 30px 0;
+}
+
+.copyright a {
+	display: block;
+	width: 100px;
+	height: 30px;
+	border: 1px solid #00a4ff;
+	line-height: 30px;
+	text-decoration: none;
+	text-align: center;
+	color: #00a4ff;
+	font-size: 16px;
+}
+
+.links dl {
+	float: left;
+	margin-left: 100px;
+}
+
+.links dl dt {
+	margin-bottom: 10px;
+	font-size: 16px;
+	color: #333;
+}
+
+.links dl dd a {
+	font-size: 12px;
+	color: #333;
+}

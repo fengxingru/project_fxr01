@@ -1,0 +1,5 @@
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;     限制文本显示的行数     
+-webkit-box-orient: vertical;

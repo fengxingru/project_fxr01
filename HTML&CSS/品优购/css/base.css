@@ -1,0 +1,68 @@
+/* 内外边距清零 但有些网站不太提倡使用通配符选择器*/
+* {
+    margin: 0;
+    padding: 0;
+    /* CSS3盒子模型，盒子大小=width */
+    box-sizing: border-box;
+}
+
+/* 修正字体倾斜 */
+em, i {
+    font-style: normal;
+}
+
+/* 取消li前的原点 */
+li {
+    list-style: none;
+}
+
+img {
+    /* 兼容低版本浏览器，若图片外包含链接会有边框 */
+    border:0;
+    /* 居中对齐，解决图片底测有空白缝隙问题 */
+    vertical-align: middle;
+}
+/* 鼠标经过按钮，鼠标变成小手 */
+button {
+    cursor: pointer;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c81623;
+}
+/* 字体写汉字兼容性差，\5B8B\4F53为Unicode编码的宋体 */
+button,input {
+    /* 取消默认边框 */
+    border: 0;
+    outline: none;
+    font-family:Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+}
+
+body {
+    /* 文字放大后具有抗锯齿性 */
+    -webkit-font-smoothing:antialiased;
+    background-color:#fff;
+    font:12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+    color:#666
+}
+
+.hide, .none {
+    display:none;
+}
+/* 清除浮动 */
+.clearfix:after {
+    visibility:hidden;
+    clear:both;
+    display:block;
+    content:".";
+    height:0
+}
+
+.clearfix {
+    *zoom:1
+}

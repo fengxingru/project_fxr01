@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单动画函数封装</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0px;
+            width: 200px;
+            height: 200px;
+            margin-top: 8px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn200">200</button>
+    <button class="btn400">400</button>
+    <div></div>
+
+    <script>
+        //obj目标对象，target目标位置，callback作为形参接收函数实参（相当于callback=function(){}）
+        function animate(obj, target, callback){
+            //防止定时器叠加
+            clearInterval(obj.timer);
+            //obj.timer实现了给不同元素指定不同定时器
+            obj.timer = setInterval(function() {
+                //实现缓步动画效果；（目标位置-当前位置）/ 10
+                var step = (target - obj.offsetLeft) / 10;
+                //判断向前或向后移动；若向前移动，步长为正数，则向上取整，若向后移动，步长为负数，则向下取整
+                step = step > 0 ? Math.ceil(step) : Math.floor(step); 
+                //当目标对象与body的距离等于目标位置时，停止移动。本质为停止定时器
+                if(obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    //判断是否有回调函数，如果有则调用
+                    if(callback) {
+                        callback();
+                    }
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 15)
+        }
+        var div = document.querySelector('div');
+        var btn200 = document.querySelector('.btn200');
+        var btn400 = document.querySelector('.btn400');
+
+        btn200.addEventListener('click', function() {
+            animate(div, 200);
+        })
+        
+        btn400.addEventListener('click', function() {
+            animate(div, 400, function() {
+                //添加回调函数，将函数作为实参传递
+                div.style.backgroundColor = 'pink';
+            });
+        })
+    </script>
+</body>
+</html>

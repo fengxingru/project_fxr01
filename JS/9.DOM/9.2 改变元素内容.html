@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>改变元素内容</title>
+</head>
+<body>
+    <div>111</div>
+    <p>
+        111
+        <span>222</span>
+    </p>
+    <script>
+        //innerText和innerHTML的区别
+        var div = document.querySelector('div');
+        //innerTest无法识别标签
+        div.innerText = '<strong>哈哈哈哈</strong>';
+        //innerHTML可识别标签，将哈哈哈哈加粗
+        // div.innerHTML = '<strong>哈哈哈哈</strong>';
+
+        //innerText和innerHTML可读写
+        var p = document.querySelector('p');
+        console.log(p.innerText);   //innerTest从p标签起始位置到p标签终止位置，去除标签和空格、换行
+        console.log(p.innerHTML);   //innerHTML从p标签起始位置到p标签终止位置，去除标签和空格、换行
+    </script>
+</body>
+</html>

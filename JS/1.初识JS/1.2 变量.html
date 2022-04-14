@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量的使用</title>
+    <script>
+        var str = 'feng';
+        console.log(str + 18);
+
+       /*  var age = prompt('请输入你的年龄');
+        alert('冯今年' + age + '岁');*/
+        
+        //获取变量数据类型
+        console.log(typeof true);
+
+        //数据类型转换
+        //转换为字符串
+        var num = 1;
+        console.log(num.toString());
+
+        console.log(String(num));
+
+        console.log(18 + '');
+
+        //转换为数字
+        console.log(parseInt('3'));
+        console.log(parseInt('3.4'));
+        console.log(parseInt('30px'));
+        console.log(parseFloat('3'));
+        console.log(parseFloat('3.4'));
+        console.log(parseFloat('3.4px'));
+        console.log('100' - 0);
+
+        //计算年龄案例
+        var year = prompt('请输入你的出生年份');
+        var age = 2021 - year;
+        alert('你今年' + age + '岁');
+
+        //加法案例
+        var num1 = parseFloat(prompt('请输入第一个数'));
+        var num2 = parseFloat(prompt('请输入第二个数'));
+        var sum = num1 + num2;
+        alert('两数相加的结果为：' + sum);
+
+        //转换为布尔类型
+        console.log(Boolean(null));
+        console.log(Boolean('false'));
+        console.log(Boolean(false));
+
+        //课后作业
+        var name = prompt('请输入你的姓名');
+        var age = parseFloat(prompt('请输入你的年龄'));
+        var sex = prompt('请输入你的性别');
+        alert('姓名：' + name + '\n' + '年龄：' + age + '\n' + '性别：' + sex);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

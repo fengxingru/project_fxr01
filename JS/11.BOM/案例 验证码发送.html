@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>验证码发送</title>
+</head>
+
+<body>
+    手机号：<input type="number"> <button>发送</button>
+    <script>
+        /* 1.点击发送按钮后，按钮被禁用，同时按钮中的内容改变
+           2.定时器倒计时60秒
+           3.0秒时，按钮状态和内容恢复 */
+        var btn = document.querySelector('button');
+        var time = 5;
+        btn.addEventListener('click', function () {
+            btn.disabled = true;
+            //此时的定时器标识符不用使用全局变量，因为停止定时器在开始定时器内部
+            var timer = setInterval(function () {
+                //定时器开始后，判断时间是否为0，若为0，停止定时器并恢复发送按钮状态和内容
+                if (time == 0) {
+                    clearInterval(timer);
+                    btn.disabled = false;
+                    btn.innerHTML = '发送';
+                    time = 5;
+                }
+                else {
+                    btn.innerHTML = time + 's后重试';
+                    time--;
+                }
+            }, 1000);
+        })
+    </script>
+</body>
+
+</html>

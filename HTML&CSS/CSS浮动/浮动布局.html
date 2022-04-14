@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>浮动布局</title> 
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.box {
+		width: 508px;
+		height: 302px;
+		background-color: pink;
+		margin: 0 auto;
+	}
+	
+	.left {
+		width: 100px;
+		height: 302px;
+		background: red;
+		float: left;
+	}
+	
+	.right {
+		width: 408px;
+		height: 302px;
+		background: orange;
+		float: left;
+	}
+	
+	li {
+		width: 100px;
+		height: 150px;
+		list-style: none;
+		background-color: green;
+		float: left;
+		margin-left: 2px;
+		margin-bottom: 2px;
+	}
+
+	li:hover {
+		box-shadow: 5px 3px 8px 3px rgba(0, 0, 0, .3)
+	} 
+</style>
+</head>
+
+<body>
+	<div class="box">
+		<div class="left"></div>
+		<div class="right">
+			<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+				</ul>
+		</div>
+	</div>
+</body>
+</html>

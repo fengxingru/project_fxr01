@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll系列</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .w {
+            width: 1200px;
+            margin: 10px auto;
+        }
+
+        .header {
+            height: 150px;
+            background-color: pink;
+        }
+
+        .banner {
+            height: 250px;
+            background-color: plum;
+        }
+
+        .main {
+            height: 1000px;
+            background-color: powderblue;
+        }
+
+        .slider-bar {
+            position: absolute;
+            left: 50%;
+            margin-left: 600px;
+            top: 430px;
+            width: 45px;
+            height: 130px;
+            background-color: sandybrown;
+        }
+
+        span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部</div>
+    <div class="banner w">banner</div>
+    <div class="main w">主体</div>
+
+    <script>
+        //获取元素
+        var sliderbar = document.querySelector('.slider-bar');
+        var banner = document.querySelector('.banner');
+        var main = document.querySelector('.main');
+        var goBack = document.querySelector('.goBack');
+
+        //banner与body之间的距离
+        var bannerTop = banner.offsetTop;
+        //main与body之间的距离
+        var mainTop = main.offsetTop;
+        var sliderbarTop = sliderbar.offsetTop - bannerTop;
+
+        document.addEventListener('scroll', function () {
+            //当页面被卷去的部分大于等于banner与body之间的距离时，sliderbar变为固定定位
+            if (window.pageYOffset >= bannerTop) {
+                sliderbar.style.position = 'fixed';
+                sliderbar.style.top = sliderbarTop + 'px';
+            }
+            else {
+                sliderbar.style.position = 'absolute';
+                sliderbar.style.top = '430px';
+            }
+            //当页面滚动带main板块时，显示goBack模块
+            if (window.pageYOffset >= mainTop) {
+                goBack.style.display = 'block';
+            }
+            else {
+                goBack.style.display = 'none';
+            }
+        })
+
+        //点击返回顶部，使窗口缓慢返回页面最上方
+        goBack.addEventListener('click', function () {
+            animate(window, 0)
+        })
+
+        //obj目标对象，target目标位置，callback作为形参接收函数实参（相当于callback=function(){}）
+        function animate(obj, target, callback) {
+            //防止定时器叠加
+            clearInterval(obj.timer);
+            //obj.timer实现了给不同元素指定不同定时器
+            obj.timer = setInterval(function () {
+                //实现缓步动画效果；（目标位置-页面被卷去头部）/ 10
+                var step = (target - obj.pageYOffset) / 10;
+                //判断向前或向后移动；若向前移动，步长为正数，则向上取整，若向后移动，步长为负数，则向下取整
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                //当目标对象与body的距离等于目标位置时，停止移动。本质为停止定时器
+                if (obj.pageYOffset == target) {
+                    clearInterval(obj.timer);
+                    //判断是否有回调函数，如果有则调用
+                    /* if(callback) {
+                        callback();
+                    } */
+                    //运用了与运算的短路特性
+                    callback && callback();
+                }
+                // obj.style.left = obj.pageYOffset + step + 'px';
+                window.scroll(0, obj.pageYOffset + step)
+            }, 15)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        #angel {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./angel.gif" alt="" id="angel" />
+
+    <script>
+        $(function() {
+            // 1.获取到图片
+            var angel = $('#angel');
+            // 4.节流的应用
+            var timer = null; //4.1.定义节流阀
+            // 2. 绑定 mousemove 事件
+            $(document).on('mousemove', function(e) {
+                if (timer) {
+                    return;
+                } //4.3.判断节流阀是否为空，若为空，表示上次执行已结束；若不为空，表示上次执行未结束
+                // 3. 设置图片的位置
+                timer = setTimeout(function() {
+                        $(angel).css('top', e.pageY + 'px').css('left', e.pageX + 'px');
+                        console.log('ok');
+                        timer = null; //执行完毕后将节流阀清空
+                    }, 16) //4.2.开启延时
+            })
+        })
+    </script>
+</body>
+
+</html>

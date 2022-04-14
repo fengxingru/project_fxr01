@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组新增元素</title>
+    <script>
+        //索引号追加数组元素
+        var arr = ['red', 'orange', 'yellow'];
+        arr[3] = 'blue';
+        console.log(arr);
+
+        //length修改数组长度，扩充的长度为赋值，默认为undefined
+        var arr1 = ['red', 'orange', 'yellow'];
+        arr1.length = 5;
+        console.log(arr1);
+
+        /* var arr = [2, 8, 4, 17, 6, 35, 18, 59, 36];
+        var newArr = [];
+        var j = 0;
+        for (var i = 0; i <= arr.length; i++) {
+            if (arr[i] >10) {
+                //newArr[newArr.length] = arr[i];可替换以下两行
+                newArr[j] = arr[i];
+                j++;
+            }
+        }
+        console.log(newArr); */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

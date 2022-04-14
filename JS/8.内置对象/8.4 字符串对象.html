@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串变量</title>
+    <script>
+        //基本包装类型：把简单数据类型包装成复杂数据类型，则基本数据类型就有了属性和方法
+        //例：var str = 'fengxingru';   console.log(str.length);
+        //相当于：var temp = new String('fengxingru');  str = temp; temp = null;
+        
+        
+        //字符串不可变
+        //例：var str = '1';    var str = '2';
+        //生成的字符串一直存在于内存空间，str为房间
+
+        //数组名.indexOf(数组元素, 起始位置索引号)
+        //返回字符位置  确定第一个需要查找的字符出现的位置，indexOf不为-1，则从第一个需要查找的字符出现的位置继续查找
+        var str = 'babcbcadebaa';
+        var index = str.indexOf('a');
+        var num = 0;
+        while(index != -1) {
+            console.log(index);
+            num++;
+            index = str.indexOf('a', index + 1);
+        }
+        console.log('a一共出现了' + num + '次');
+
+        //返回指定位置上的字符：字符串名.charAt(索引号)
+        var str1 = 'fengxingru';
+        console.log(str1.charAt(4));
+        for (var i = 0; i < str1.length; i++) {
+            console.log(str1.charAt(i));
+        }
+
+        //返回指定位置上的字符所对应的ASCII码值
+        console.log(str1.charCodeAt(0));
+
+        //返回指定位置上的字符
+        console.log(str1[0]);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

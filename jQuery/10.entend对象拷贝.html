@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>entend()对象拷贝</title>
+    <script src="jQuery.mini.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            // $.entend([deep], target, object1, [objectN])
+            var target = {
+                id: 0,
+                msg: {
+                    age: 18
+                }
+            };
+            var obj = {
+                //目标对象与被拷贝对象里有冲突的属性，会覆盖目标对象中的值
+                id: 1,
+                name: "Andy",
+                msg: {
+                    sex: "women"
+                }
+            }
+            //浅拷贝是把被拷贝的对象复杂数据类型中的地址拷贝给目标对象，修改目标对象会影响被拷贝的对象
+            /* $.extend(target, obj);
+            target.msg.sex = "man";
+            console.log(target);
+            console.log(obj); */
+            
+            //深拷贝完全克隆，修改目标对象不影响被拷贝对象。如果目标对象与被拷贝对象里有冲突的属性，覆盖；目标对象与被拷贝对象里有不冲突的属性，合并
+            $.extend(true, target, obj);
+            target.msg.sex = "man";
+            console.log(target);
+            console.log(obj);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function abc(data) {
+      console.log('拿到了Data数据：')
+      console.log(data)
+    }
+  </script>
+
+  <!-- 拼接的查询字符串意为告知服务器我的函数名为abc -->
+  <script src="./js/getdata.js?callback=abc"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>className与addClass的区别</title>
+    <script src="jQuery.mini.js"></script>
+    <style>
+        .one {
+            width: 200px;
+            background-color: blanchedalmond;
+        }
+        .two {
+            height: 100px;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">1</div>
+    <script>
+        //原生JS方法修改类名时，会覆盖原先的类名
+        /* var one = document.querySelector('.one');
+        one.className = "two"; */
+
+        //jQuery只对指定类操作，不影响原先类
+        $(function() {
+            $(".one").click(function() {
+                $(this).addClass("two");    
+            })
+        })
+        /* $(function() {
+            $(".one").click(function() {
+                $(this).toggleClass("two");
+            })
+        }) */
+    </script>
+</body>
+</html>

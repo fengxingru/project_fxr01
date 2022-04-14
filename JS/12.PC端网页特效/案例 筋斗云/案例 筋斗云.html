@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>筋斗云</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav {
+            position: relative;
+            margin: 100px auto;
+            width: 900px;
+            height: 40px;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+
+        .nav ul {
+            list-style: none;
+            position: absolute;
+        }
+
+        .nav li {
+            float: left;
+        }
+
+        .nav li a {
+            display: inline-block;
+            width: 85px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .cloud {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background: url(cloud.gif) no-repeat;
+            width: 85px;
+            height: 40px;
+        }
+    </style>
+
+    <script src="../animate.js"></script>
+
+    <script>
+        window.addEventListener('load', function() {
+            //1.获取元素
+            var cloud = document.querySelector('.cloud');
+            var lis = document.querySelectorAll('li');
+            var current = 0;
+            for(var i = 0; i < lis.length; i++)  {
+                lis[i].addEventListener('mouseenter', function() {
+                    animate(cloud, this.offsetLeft);
+                })
+                lis[i].addEventListener('mouseleave', function() {
+                    animate(cloud, current);
+                })
+                lis[i].addEventListener('click', function() {
+                    current = this.offsetLeft;
+                })
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="nav">
+        <span class="cloud"></span>
+        <ul>
+            <li><a href="#">哈哈哈哈</a></li>
+            <li><a href="#">呵呵呵呵</a></li>
+            <li><a href="#">吼吼吼吼</a></li>
+            <li><a href="#">嘿嘿嘿嘿</a></li>
+            <li><a href="#">哼哼哼哼</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

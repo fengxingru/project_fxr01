@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery对象和DOM对象相互转换</title>
+    <script src="jQuery.mini.js"></script>
+</head>
+<body>
+    <div>111</div>
+    <script>
+        //1.DOM对象转换为jQuery对象
+        var mydiv = document.querySelector('div');
+        //mydiv.hide();DOM对象mydiv不可使用jQuery对象的方法hide()
+        $(mydiv).hide();
+
+        //2.jQuery对象转换为DOM对象
+        $('div')[0].style.display = 'none';
+    </script>
+</body>
+</html>
