@@ -1,0 +1,13 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            width: 500px;
+            height: 200px;
+            background-color: antiquewhite;
+            display: none;
+        }
+    
